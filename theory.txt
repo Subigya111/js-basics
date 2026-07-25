@@ -1,0 +1,47 @@
+Server side rendering. Every website needs to send HTML to your browser so it has something to show. The question is: who builds that HTML — the server, or your browser?
+The server builds the finished page and sends it to you, ready to view. You visit a site → Server builds full HTML page → Sends it to you → You see content immediately
+
+Server side language. Code that runs on the server, before anything is sent to browsers. You never see this code — you only see its output (usually HTML, or data like JSON).
+
+
+Client side rendering. The server sends you an empty shell + a box of ingredients (JavaScript). Your browser has to "cook" the page itself.
+You type the URL → hit enter → you see a blank white page or a spinner for a second → then the article appears, because your browser had to download JavaScript, run it, 
+fetch the article data, and build the page.
+
+Client side language. Code that runs in your browser (on your device). Browsers only understand HTML/CSS/JS natively — no matter what framework or language you started with
+(React, Vue, TypeScript), it all gets converted into HTML/CSS/JS before it reaches your browser.
+
+How does code run on our browser? What makes the code run on our browser?
+Every browser has built-in programs called engines that read your code and turn it into what you see and interact with on screen. You don't install anything.
+Every browser has two built-in engines: a rendering engine (HTML/CSS → pixels) and a JS engine (runs your JavaScript and lets it manipulate the page). 
+Together, they turn text files into the interactive page you see.
+
+
+JavaScript runs on a single thread — it can only do one thing at a time. But your browser still needs to respond to clicks, network requests, timers, etc. without freezing. 
+This is handled by the event loop:
+Call Stack (running code) 
+Event Loop (constantly checking: "is the stack empty? anything waiting?")
+Callback Queue (click handlers, setTimeout, fetch responses waiting their turn)
+
+When you click a button, the browser doesn't interrupt running code — it queues up your click handler, and the event loop runs it as soon as the call stack is free.
+
+
+
+
+Idea behind compiled and interpreted language
+Computers only understand machine code (1s and 0s). But we write code in human-readable languages like Python or C++. Something has to translate our code into machine code.
+
+Compiled language: You write code, A compiler reads the whole thing and converts it into a machine code file, Then you run that file.
+If you change your code, you must re-compile before running again. 	Faster because already in machine code for the cpu to execute + CPU does not have to know what an 
+instruction means, it just executes it.	
+
+Interpreted language: You write code, You run it immediately, An interpreter reads and executes it line by line, translating as it goes, No separate "build" step.
+Steps of interpreted language: 
+
+Read the line of source code (text)
+Parse it — figure out what it means grammatically (is this an assignment? a function call? a loop?)
+Evaluate it — figure out the types involved, look up variables, decide what operation to perform
+Execute it — actually do the operation
+Move to the next line and repeat the whole cycle
+
+
