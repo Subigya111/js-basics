@@ -1,5 +1,5 @@
 //spread operator(...) is used to expand the elements of an array or object. Used when updating state in react
-//rest operator(...) uses same symbol. takes multiple values and puts them in array
+//rest operator(...) uses same symbol. takes multiple values and combines them in a single array or object
 
 //with arrays
 const arr1=[1,2,3];
@@ -32,6 +32,7 @@ const newCucu={
 console.log(newCucu.club);
 
 
-//rest operator
+/*rest operator used mainly when the number of values in parameter and argument are uncertain
+see function2.js file for more*/
 let string="gege";
 console.log(...string); //output=> g e g e
