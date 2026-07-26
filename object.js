@@ -30,3 +30,14 @@ const user2={
 }
 user1.greet();  //same function works for both objects because 'this' changes depending on which object called it.
 user2.greet();
+
+const user={
+    name:"rani",
+    age:40,
+    greet(){
+        console.log(this);
+    }
+}
+user.greet(); //output is { name: 'rani', age: 40, greet: [Function: greet] }
+user.name="kajol"; 
+user.greet(); //output is { name: 'kajol', age: 40, greet: [Function: greet] }
