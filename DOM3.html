@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 3</title>
+</head>
+<body style="background-color: #212121;color:#fff">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    // function to add more items to a list. Traverses the whole DOM tree and appends the element
+    function addLanguage(language){
+        const li=document.createElement('li'); // dont use .querySelector() because it doesnot create a new element (li). 
+                                                // We need to append new lists, so we use .createElement()
+        li.innerText=language;
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage("php");
+    addLanguage("rust");
+
+    //more optimized way. Doesnot traverse the whole DOM tree.
+    function addMoreLanguage(moreLang){
+        const li =document.createElement('li');
+        li.appendChild(document.createTextNode(moreLang));
+        document.querySelector('.language').appendChild(li);
+    }
+    addMoreLanguage("java");
+
+    //editing values
+    const second = document.querySelector("li:nth-child(2)");
+    console.log(second);
+    const newLi=document.createElement('li');
+    newLi.innerText="laravel";
+    second.replaceWith(newLi);
+
+    const first=document.querySelector("li:first-child");
+    console.log(first);
+    first.outerHTML='<li> C#</li>'
+
+    //removing values
+    const last=document.querySelector('li:last-child');
+    last.remove();
+    
+</script>
+</html>
