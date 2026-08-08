@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Event</h1>
+    <!--onclick is not recommended. addEventListener() is recommended. Keeps HTML and JS separated -->
+    <button onclick="document.getElementById('demo').innerHTML=Date()">
+        The time is?
+    </button>
+    <button onclick="this.innerHTML=Date()">
+        The time is?
+    </button>  <!--replaces the button with current date-->
+    <p id="demo"></p>
+    
+    <!--event to call a function-->
+    <button onclick="displayDate()">The time is?</button>
+    <script>
+        //function called when button is clicked
+        function displayDate(){
+            const date=document.getElementById("demo").innerHTML=Date();
+            console.log(date);
+        }
+    </script>
+    <p id="demo"></p>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Listener</title>
+</head>
+<body>
+    <button id="button">The time is?</button>
+    <p id="showDate"></p>
+    <script>
+        const button=document.getElementById("button");
+        button.addEventListener("click",function(){
+            const date=document.getElementById("showDate");
+            date.innerHTML=Date();
+        })
+    </script>
+
+</body>
+</html>
